@@ -1,21 +1,17 @@
 # Salesforce DX
 
-#### Phoenix TrailheaDX Gathering - 8/3/2017
+#### Retrieve Metadata Using Salesforce DX Command Line Internface
 
 ## Prerequisites
 * [Download Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.208.0.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
-* [Request a 30 Day DevHub Org](https://developer.salesforce.com/promotions/orgs/dx-signup)
-* [Get a GitHub.com Account](https://github.com/)
-* [DX Command Reference](https://github.com/nortonmd/dx-commands)
-* [DX Thor - The DX Source Repo](https://github.com/nortonmd/dxthor)
+* [Developer Edition](https://developer.salesforce.com)
 
 ## Nice to have
 * tree command - ```brew install tree```
 * jq command - ```brew install jq```
-* [SourceTree by Atlassian](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html)
 
 ## About DX commands
-**Flags**
+** Common Flags**
 
 ```
 -d  Your DevHub Org
