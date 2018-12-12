@@ -4,14 +4,13 @@
 
 ## Prerequisites
 * [Download Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.208.0.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
-* [Developer Edition](https://developer.salesforce.com)
+* [Developer Edition](https://developer.salesforce.com) (enable Dev Hub)
 
 ## Nice to have
 * tree command - ```brew install tree```
 * jq command - ```brew install jq```
 
-## About DX commands
-** Common Flags**
+## Common DX Flags
 
 ```
 -d  Your DevHub Org
@@ -26,9 +25,15 @@ Add --help onto the end of any sfdx command
 sfdx --help
 ```
 
+**Commands**
+
+```
+sfdx force:doc:commands:list
+```
+
 ## Let's Go
 
-For this example we're going to use a simple application Contest application we'll refer to as `contestforce`, which has been assembled into an unmanaged package in an org with the name "Contest App".
+For this example we're going to use a simple Contest application we'll refer to as `contestforce`, which has been assembled into an unmanaged package in an org with the name "Contest App".
 
 **Create a project**
 
@@ -36,10 +41,7 @@ For this example we're going to use a simple application Contest application we'
 $ cd workspace
 $ sfdx force:project:create -n contestforce
 $ cd contestforce
-$ tree
 ```
-![tree results](images/empty-project-tree.png)
-
 Update the sfdx-project.json configuration file and change the *orgName* value to something else.
 
 **Connect your Developer Edition (a.k.a. DevHub) Account**
@@ -58,9 +60,7 @@ $ sfdx force:auth:web:login -a MyOrg
 
 With DX, development work is separated into modules.  These modules are similar to packages or libraries in Java and C#.  This compartmentalization makes code management much simpler.
 
-If your code is not already contained in packages, start creating packages with related components.
-
-As mentioned above, for the purpose of this demo lets use a package called *Contest App*.
+As mentioned above, for the purpose of this demo lets use a package called "Contest App".
 
 ```
 $ sfdx force:mdapi:retrieve -s -r ./mdapi -p "Contest App" -u MyOrg -w 10
@@ -68,14 +68,12 @@ $ sfdx force:mdapi:retrieve -s -r ./mdapi -p "Contest App" -u MyOrg -w 10
 
 This retrieves the components in the package from the org ```contestforce``` and places them into a zip file in the ```/mdapi``` folder.
 
-Unzip the retrieve file and show the results.
+Unzip the retrieved file and show the results.
 
 ```
 $ cd mdapi
 $ unzip unpacakged.zip
 ```
-
-The zip file no longer serves a purpose and can be removed ```rm -f unpackaged.zip```
 
 You now have the source components in Metadata API format.
 
