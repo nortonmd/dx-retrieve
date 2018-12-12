@@ -20,15 +20,11 @@
 ```
 
 **Getting Help**
+Add --help onto the end of any sfdx command
 
 ```
-sfdx force:command --help
+sfdx --help
 ```
-
-**DX-Commands Quick Reference** [link](https://github.com/nortonmd/dx-commands)
-
-Nearly all sequetial.  Easy to search.  Drill down for each command.
-
 
 ## Let's Go
 
@@ -42,40 +38,19 @@ $ tree
 ```
 ![tree results](images/empty-project-tree.png)
 
-Update the sfdx-project.json configuration file and change the *orgName* value to something else.  Example (Phoenix Salesforce Developers).
+Update the sfdx-project.json configuration file and change the *orgName* value to something else.
 
-**Connect your DevHub Account**
+**Connect your Developer Edition (a.k.a. DevHub) Account**
 
 ```bash
 $ sfdx force:auth:web:login -d -a DevHub 
 ```
 
-**Connect your VCS**
+**Now Connect the org in which you have developed your package**
 
-Launch your browser to your GitHub.com account.  Create a repository for your DX project.  
-
-![Create a Repo](images/dx-demo-create-repo.png)
-
-Initialize your local repository and link it to your GitHub repo.
-
+```bash
+$ sfdx force:auth:web:login -a MyOrg 
 ```
-$ git init
-$ echo ".sfdx/*" > .gitignore
-$ git add .
-$ git commit -m "Initial Commit"
-$ git remote add origin https://github.com/nortonmd/dxthor
-$ git pull origin master
-```
-
-Note: There will be a conflict when mergine the README.md file.  Edit those file to resolve the conflicts, then ```git add``` & ```git commit``` the README.md.  Then push the project in this state to GitHub.
-
-```
-git add README.md
-git commit -m "Resolve conflict on README.md"
-git push origin master
-```
-
-Refresh your browser and checkout your repo in GitHub.
 
 **Retrieve a package**
 
@@ -83,10 +58,10 @@ With DX, development work is separated into modules.  These modules are similar 
 
 If your code is not already contained in packages, start creating packages with related components.
 
-For the purpose of this demo I have already created a package in my *spaceforcedev* sandbox named ```spaceforcePkg``` with all of the components for my app.  In my package I have a permission set called ```Spaceforce Perms``` with access to the app, objects & fiels, and code components.
+For the purpose of this demo lets use an example package called *Contest App*.
 
 ```
-$ sfdx force:mdapi:retrieve -s -r ./mdapi -p spaceforcePkg -u spaceforcedev -w 10
+$ sfdx force:mdapi:retrieve -s -r ./mdapi -p "Contest App" -u MyOrg -w 10
 ```
 
 ![metadata retrieve](images/sfdx-force-mdapi-retrieve.png)
