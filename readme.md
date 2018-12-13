@@ -6,10 +6,6 @@
 * [Download Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.208.0.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
 * [Developer Edition](https://developer.salesforce.com) (enable Dev Hub)
 
-## Nice to have
-* tree command - ```brew install tree```
-* jq command - ```brew install jq```
-
 ## Common DX Flags
 
 ```
@@ -50,7 +46,7 @@ Update the sfdx-project.json configuration file and change the *orgName* value t
 $ sfdx force:auth:web:login -d -a DevHub 
 ```
 
-**Now Connect the org in which you have developed your package**
+**Now connect the org in which you have developed your package**
 
 ```bash
 $ sfdx force:auth:web:login -a MyOrg 
