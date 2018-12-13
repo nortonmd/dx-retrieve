@@ -31,7 +31,7 @@ sfdx force:doc:commands:list
 
 For this example we're going to use a simple Contest application we'll refer to as `contestforce`, which has been assembled into an unmanaged package in an org with the name "Contest App".
 
-**Create a project**
+**[Create](force_project_create.md) a project**
 
 ```bash
 $ cd workspace
@@ -40,7 +40,7 @@ $ cd contestforce
 ```
 Update the sfdx-project.json configuration file and change the *orgName* value to something else.
 
-**Connect your Developer Edition (a.k.a. DevHub) Account**
+**[Connect](force_auth_web_login.md) your Developer Edition (a.k.a. DevHub) Account**
 
 ```bash
 $ sfdx force:auth:web:login -d -a DevHub 
@@ -58,11 +58,11 @@ With DX, development work is separated into modules.  These modules are similar 
 
 As mentioned above, for the purpose of this demo lets use a package called "Contest App".
 
+[Retrieve](force_mdapi_retrieve.md) the package contents into a local zipped file.
+
 ```
 $ sfdx force:mdapi:retrieve -s -r ./mdapi -p "Contest App" -u MyOrg -w 10
 ```
-
-This retrieves the components in the package from the org ```contestforce``` and places them into a zip file in the ```/mdapi``` folder.
 
 Unzip the retrieved file and show the results.
 
@@ -73,7 +73,7 @@ $ unzip unpacakged.zip
 
 You now have the source components in Metadata API format.
 
-Convert the metadata format to the new DX format and push that code to GitHub.
+[Convert](force_mdapi_convert.md) the metadata format to the new DX format and push that code to GitHub.
 
 ```
 $ sfdx force:mdapi:convert -r mdapi/
